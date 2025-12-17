@@ -6,26 +6,26 @@ function Products({ cartItems, setCartItems }) {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [sortOrder, setSortOrder] = useState("");
 
-  // 🔹 Dynamic categories
+ 
   const categories = [
     "All",
     ...new Set(products.map(p => p.category))
   ];
 
-  // 🔹 Filter
+  
   const filteredProducts =
     selectedCategory === "All"
       ? products
       : products.filter(p => p.category === selectedCategory);
 
-  // 🔹 Sort
+  
   const sortedProducts = [...filteredProducts].sort((a, b) => {
     if (sortOrder === "low-high") return a.price - b.price;
     if (sortOrder === "high-low") return b.price - a.price;
     return 0;
   });
 
-  // 🛒 REAL ADD TO CART LOGIC
+  
   const handleAddToCart = (product) => {
     setCartItems(prev => {
       const existingItem = prev.find(
@@ -51,10 +51,10 @@ function Products({ cartItems, setCartItems }) {
         Our Products
       </h2>
 
-      {/* FILTER + SORT */}
+     
       <div className="flex flex-wrap justify-between items-center gap-4 mb-8 max-w-7xl mx-auto">
 
-        {/* CATEGORY */}
+       
         <div className="flex flex-wrap gap-3">
           {categories.map(category => (
             <button
@@ -72,7 +72,7 @@ function Products({ cartItems, setCartItems }) {
           ))}
         </div>
 
-        {/* SORT */}
+      
         <select
           value={sortOrder}
           onChange={(e) => setSortOrder(e.target.value)}
@@ -84,7 +84,7 @@ function Products({ cartItems, setCartItems }) {
         </select>
       </div>
 
-      {/* PRODUCTS */}
+      
       <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 max-w-7xl mx-auto">
         {sortedProducts.map(product => (
           <ProductCard

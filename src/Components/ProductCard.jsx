@@ -14,7 +14,7 @@ function ProductCard({ product, onAddToCart }) {
   return (
     <div className="relative bg-[#1f1f1f] text-white rounded-xl shadow-lg hover:scale-[1.03] transition">
 
-      {/* ❤️ WISHLIST */}
+   
       <button
         onClick={() => setWishlisted(!wishlisted)}
         className="absolute top-3 right-3 text-xl"
@@ -22,14 +22,14 @@ function ProductCard({ product, onAddToCart }) {
         {wishlisted ? "❤️" : "🤍"}
       </button>
 
-      {/* ❌ OUT OF STOCK */}
+     
       {!product.inStock && (
         <span className="absolute top-3 left-3 bg-red-500 text-xs px-2 py-1 rounded">
           Out of Stock
         </span>
       )}
 
-      {/* IMAGE */}
+    
       <img
         src={product.image}
         alt={product.name}

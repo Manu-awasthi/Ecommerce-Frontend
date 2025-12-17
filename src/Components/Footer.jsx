@@ -2,10 +2,10 @@ function Footer() {
   return (
     <footer className="bg-[#0f0f0f] text-gray-400 mt-12">
       
-      {/* TOP SECTION */}
+      
       <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
 
-        {/* BRAND */}
+       
         <div>
           <h2 className="text-xl font-bold text-blue-400 mb-3">
             ShopEasy
@@ -16,7 +16,7 @@ function Footer() {
           </p>
         </div>
 
-        {/* QUICK LINKS */}
+        
         <div>
           <h3 className="text-white font-semibold mb-3">
             Quick Links
@@ -29,7 +29,7 @@ function Footer() {
           </ul>
         </div>
 
-        {/* CATEGORIES */}
+       
         <div>
           <h3 className="text-white font-semibold mb-3">
             Categories
@@ -42,7 +42,7 @@ function Footer() {
           </ul>
         </div>
 
-        {/* SOCIAL */}
+       
         <div>
           <h3 className="text-white font-semibold mb-3">
             Follow Us
@@ -56,7 +56,7 @@ function Footer() {
         </div>
       </div>
 
-      {/* BOTTOM BAR */}
+     
       <div className="border-t border-gray-800 text-center py-4 text-sm">
         © {new Date().getFullYear()} ShopEasy. All rights reserved.
       </div>

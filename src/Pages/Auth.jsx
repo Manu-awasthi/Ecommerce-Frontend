@@ -5,7 +5,7 @@ function Auth({ setIsLoggedIn, setUser }) {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // 🔁 redirect after login (checkout or home)
+ 
   const redirectTo = location.state?.from || "/";
 
   const [isSignup, setIsSignup] = useState(false);
@@ -19,9 +19,6 @@ function Auth({ setIsLoggedIn, setUser }) {
 
   const [errors, setErrors] = useState({});
 
-  /* ======================
-     INPUT HANDLER
-  ====================== */
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -30,9 +27,7 @@ function Auth({ setIsLoggedIn, setUser }) {
     setErrors({});
   };
 
-  /* ======================
-     VALIDATION
-  ====================== */
+ 
   const validate = () => {
     const err = {};
 
@@ -54,16 +49,14 @@ function Auth({ setIsLoggedIn, setUser }) {
     return Object.keys(err).length === 0;
   };
 
-  /* ======================
-     SUBMIT
-  ====================== */
+ 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!validate()) return;
 
     setLoading(true);
 
-    // 🔐 fake auth (frontend only)
+   
     const userData = {
       name: isSignup ? formData.name : "User",
       email: formData.email
@@ -75,7 +68,7 @@ function Auth({ setIsLoggedIn, setUser }) {
 
     setTimeout(() => {
       setLoading(false);
-      navigate(redirectTo); // ✅ IMPORTANT FIX
+      navigate(redirectTo); 
     }, 800);
   };
 
@@ -89,7 +82,7 @@ function Auth({ setIsLoggedIn, setUser }) {
 
         <form onSubmit={handleSubmit} className="space-y-4">
 
-          {/* NAME */}
+         
           {isSignup && (
             <div>
               <input
@@ -107,7 +100,7 @@ function Auth({ setIsLoggedIn, setUser }) {
             </div>
           )}
 
-          {/* EMAIL */}
+         
           <div>
             <input
               name="email"
@@ -123,7 +116,7 @@ function Auth({ setIsLoggedIn, setUser }) {
             )}
           </div>
 
-          {/* PASSWORD */}
+          
           <div>
             <input
               type="password"
@@ -140,7 +133,6 @@ function Auth({ setIsLoggedIn, setUser }) {
             )}
           </div>
 
-          {/* BUTTON */}
           <button
             disabled={loading}
             className={`w-full py-2 rounded font-semibold transition
@@ -158,7 +150,7 @@ function Auth({ setIsLoggedIn, setUser }) {
           </button>
         </form>
 
-        {/* TOGGLE */}
+        
         <p className="text-center mt-4 text-sm text-gray-400">
           {isSignup ? "Already have an account?" : "New user?"}
           <button

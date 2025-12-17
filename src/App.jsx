@@ -11,11 +11,11 @@ import Checkout from "./Pages/Checkout";
 import OrderSuccess from "./Pages/OrderSucess";
 import Orders from "./Pages/Order";
 
-/* 🔁 Layout: controls Footer visibility */
+
 function Layout({ children }) {
   const location = useLocation();
 
-  // Hide footer on these routes (prefix-based, safer)
+
   const hideFooterRoutes = ["/auth", "/checkout", "/success"];
 
   const hideFooter = hideFooterRoutes.some(route =>
@@ -31,26 +31,20 @@ function Layout({ children }) {
 }
 
 function App() {
-  /* =======================
-     🔐 AUTH STATE
-  ======================== */
+ 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
 
-  /* =======================
-     🛒 CART STATE
-  ======================== */
+  
   const [cartItems, setCartItems] = useState([]);
 
-  // 🔢 Derived cart count (BEST PRACTICE)
+  
   const cartCount = cartItems.reduce(
     (total, item) => total + item.qty,
     0
   );
 
-  /* =======================
-     🔁 RESTORE STATE
-  ======================== */
+  
   useEffect(() => {
     try {
       const storedUser = localStorage.getItem("user");
@@ -69,16 +63,14 @@ function App() {
     }
   }, []);
 
-  /* =======================
-     💾 PERSIST CART
-  ======================== */
+  
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cartItems));
   }, [cartItems]);
 
   return (
     <BrowserRouter>
-      {/* 🔝 GLOBAL NAVBAR */}
+     
       <Navbar
         isLoggedIn={isLoggedIn}
         user={user}
@@ -87,10 +79,10 @@ function App() {
         cartCount={cartCount}
       />
 
-      {/* 🔀 ROUTES */}
+    
       <Layout>
         <Routes>
-          {/* 🏠 PRODUCTS */}
+          
           <Route
             path="/"
             element={
@@ -101,7 +93,7 @@ function App() {
             }
           />
 
-          {/* 🔐 AUTH */}
+         
           <Route
             path="/auth"
             element={
@@ -112,7 +104,7 @@ function App() {
             }
           />
 
-          {/* 🛒 CART */}
+         
           <Route
             path="/cart"
             element={
@@ -123,7 +115,7 @@ function App() {
             }
           />
 
-          {/* 💳 CHECKOUT */}
+          
           <Route
             path="/checkout"
             element={
@@ -134,13 +126,13 @@ function App() {
             }
           />
 
-          {/* ✅ ORDER SUCCESS */}
+          
           <Route
             path="/success"
             element={<OrderSuccess />}
           />
 
-          {/* 📦 ORDER HISTORY */}
+         
           <Route
             path="/orders"
             element={<Orders />}

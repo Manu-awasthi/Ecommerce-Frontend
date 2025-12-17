@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 function Cart({ cartItems = [], setCartItems }) {
   const navigate = useNavigate();
 
-  // 🔼 Increase quantity
+  
   const increaseQty = (id) => {
     setCartItems(items =>
       items.map(item =>
@@ -14,7 +14,7 @@ function Cart({ cartItems = [], setCartItems }) {
     );
   };
 
-  // 🔽 Decrease quantity
+  
   const decreaseQty = (id) => {
     setCartItems(items =>
       items.map(item =>
@@ -25,26 +25,26 @@ function Cart({ cartItems = [], setCartItems }) {
     );
   };
 
-  // ❌ Remove item
+  
   const removeItem = (id) => {
     setCartItems(items =>
       items.filter(item => item.id !== id)
     );
   };
 
-  // 💰 Total price
+  
   const totalPrice = cartItems.reduce(
     (total, item) => total + item.price * item.qty,
     0
   );
 
-  // 📦 Total quantity
+  
   const totalItems = cartItems.reduce(
     (total, item) => total + item.qty,
     0
   );
 
-  // 🛒 Checkout handler (auth protected)
+  
   const handleCheckout = () => {
     const isLoggedIn = localStorage.getItem("user");
     if (!isLoggedIn) {
@@ -61,7 +61,7 @@ function Cart({ cartItems = [], setCartItems }) {
         Your Cart
       </h2>
 
-      {/* EMPTY CART */}
+      
       {cartItems.length === 0 ? (
         <div className="text-center mt-20 text-gray-400">
           <p className="text-2xl">🛒 Your cart is empty</p>
@@ -77,7 +77,7 @@ function Cart({ cartItems = [], setCartItems }) {
       ) : (
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
 
-          {/* CART ITEMS */}
+         
           <div className="md:col-span-2 space-y-6">
             {cartItems.map(item => (
               <div
@@ -98,7 +98,7 @@ function Cart({ cartItems = [], setCartItems }) {
                     ₹{item.price}
                   </p>
 
-                  {/* QTY CONTROLS */}
+                 
                   <div className="flex items-center gap-3 mt-3">
                     <button
                       onClick={() => decreaseQty(item.id)}
@@ -118,7 +118,7 @@ function Cart({ cartItems = [], setCartItems }) {
                   </div>
                 </div>
 
-                {/* REMOVE */}
+              
                 <button
                   onClick={() => removeItem(item.id)}
                   className="text-red-400 hover:text-red-500"
@@ -129,7 +129,7 @@ function Cart({ cartItems = [], setCartItems }) {
             ))}
           </div>
 
-          {/* SUMMARY */}
+          
           <div className="bg-[#1f1f1f] p-6 rounded-xl h-fit sticky top-24">
             <h3 className="text-xl font-semibold mb-4">
               Price Details

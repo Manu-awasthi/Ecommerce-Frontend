@@ -23,7 +23,7 @@ function Navbar({
     <nav className="bg-[#121212] text-white px-4 py-3 shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
 
-        {/* LOGO */}
+        
         <h1
           className="text-xl font-bold text-blue-400 cursor-pointer"
           onClick={() => navigate("/")}
@@ -31,7 +31,7 @@ function Navbar({
           ShopEasy
         </h1>
 
-        {/* SEARCH (DESKTOP) */}
+      
         <div className="hidden md:block">
           <input
             value={searchQuery}
@@ -41,10 +41,10 @@ function Navbar({
           />
         </div>
 
-        {/* DESKTOP MENU */}
+       
         <div className="hidden md:flex gap-6 items-center">
 
-          {/* CART */}
+         
           <div
             className="relative cursor-pointer"
             onClick={() => navigate("/cart")}
@@ -57,7 +57,7 @@ function Navbar({
             )}
           </div>
 
-          {/* AUTH / USER */}
+          
           {!isLoggedIn ? (
             <button
               onClick={() => navigate("/auth")}
@@ -88,7 +88,7 @@ function Navbar({
           )}
         </div>
 
-        {/* MOBILE MENU BUTTON */}
+        
         <button
           className="md:hidden text-2xl"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -97,11 +97,11 @@ function Navbar({
         </button>
       </div>
 
-      {/* MOBILE MENU */}
+      
       {menuOpen && (
         <div className="md:hidden bg-[#1f1f1f] mt-3 rounded shadow">
 
-          {/* CART */}
+         
           <button
             onClick={() => {
               navigate("/cart");

@@ -28,16 +28,16 @@ function Checkout({ cartItems, setCartItems }) {
     0
   );
 
-  // 🔑 Order ID
+ 
   const generateOrderId = () =>
     "ORD-" + Math.floor(Math.random() * 1000000);
 
-  // ✅ Basic address validation
+
   const isAddressValid = Object.values(address).every(
     field => field.trim() !== ""
   );
 
-  // FINAL ORDER PLACE
+ 
   const confirmPlaceOrder = () => {
     setProcessing(true);
 
@@ -77,7 +77,7 @@ function Checkout({ cartItems, setCartItems }) {
 
       <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
 
-        {/* ADDRESS */}
+       
         <div className="bg-[#1f1f1f] p-6 rounded-xl">
           <h3 className="text-xl font-semibold mb-4">
             Shipping Address
@@ -96,7 +96,7 @@ function Checkout({ cartItems, setCartItems }) {
           ))}
         </div>
 
-        {/* SUMMARY + PAYMENT */}
+        
         <div className="bg-[#1f1f1f] p-6 rounded-xl">
           <h3 className="text-xl font-semibold mb-4">
             Order Summary
@@ -119,7 +119,7 @@ function Checkout({ cartItems, setCartItems }) {
             <span>₹{totalAmount}</span>
           </div>
 
-          {/* 💳 RAZORPAY DEMO */}
+          
           <div className="bg-black border border-gray-700 p-4 rounded mb-4">
             <h4 className="text-blue-400 font-semibold mb-2">
               Razorpay Secure Payment (Demo)
@@ -135,7 +135,7 @@ function Checkout({ cartItems, setCartItems }) {
             />
           </div>
 
-          {/* PLACE ORDER */}
+        
           <button
             disabled={!isAddressValid || processing}
             onClick={() => setShowConfirm(true)}
@@ -151,7 +151,7 @@ function Checkout({ cartItems, setCartItems }) {
         </div>
       </div>
 
-      {/* 🔔 CONFIRMATION MODAL */}
+      
       {showConfirm && (
         <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
           <div className="bg-gray-900 p-6 rounded-xl w-80 text-center animate-pulse">
